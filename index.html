@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Verification</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="header">
+            <h1>Card number verification</h1>
+        </header>
+        <section id="translate">
+            <div id="explanation">
+                <div class="content">
+                    <h1>Card number verification</h1>
+
+                    <p>Each payment card has its own unique number. Banks have databases of all card numbers, but
+                        polling them is extremely time consuming. At the same time, the internet is teeming with typos
+                        and scams. Therefore, banks need your algorithm to verify the card number in the browser. The
+                        number of the card issued by the selected supplier always has a specific length:
+                        <ul>
+                            <li>Mastercard: 16 digits.</li>
+                            <li>Visa: 13 or 16 digits.</li>
+                            <li>American Express: 15 digits.</li>
+                        </ul>
+                    </p>
+                    <p>These numbers start with a defined pool of numbers:
+                        <ul>
+                            <li>Mastercard: 51, 52, 53, 54, 55</li>
+                            <li>Visa: 4</li>
+                            <li>American Express: 34, 37</li>
+                        </ul>
+                    </p>
+                    <p>In addition, the card number, regardless of the provider, must be verified using the Luhn
+                        algorithm:
+                        <ol>
+                            <li>Starting with the penultimate number, multiply by two each digit with an odd index.
+                                Break it
+                                up
+                                obtained numbers into the sum of their digits (e.g. 18 -> 1 + 8), then sum all these
+                                digits
+                                together.</li>
+                            <li>Add the sum obtained to the sum of the digits that you did not multiply by two.</li>
+                            <li>If the received number modulo 10 is 0, the card number is valid.</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+
+            <form>
+                <input type="text" id="card-number" class="form__input" autocomplete="off" placeholder=" ">
+                <label for="card-number" class="form__label">Card number</label>
+                <button type="submit" class="btn">Verify</button>
+                <div class="effect">
+                    <p class="text"></p>
+                    <button class="closeBtn"><i class="fas fa-times"></i></button>
+                </div>
+            </form>
+
+    </div>
+
+    </section>
+    <footer id="footer">
+        <p>&copy; Copyright 2021 by Paweł Zajączkowski</p>
+    </footer>
+    </div>
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>
